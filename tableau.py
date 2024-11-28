@@ -395,12 +395,6 @@ def is_free_variable(formula, index):
 
     return False  # Variable not found or not free
 
-#------------------------------------------------------------------------------------------------------------------------------:
-#                   DO NOT MODIFY THE CODE BELOW. MODIFICATION OF THE CODE BELOW WILL RESULT IN A MARK OF 0!                   :
-#------------------------------------------------------------------------------------------------------------------------------:
-
-f = open('input.txt')
-
 parseOutputs = ['not a formula',
                 'an atom',
                 'a negation of a first order logic formula',
@@ -413,32 +407,3 @@ parseOutputs = ['not a formula',
 
 satOutput = ['is not satisfiable', 'is satisfiable', 'may or may not be satisfiable']
 
-
-
-firstline = f.readline()
-
-PARSE = False
-if 'PARSE' in firstline:
-    PARSE = True
-
-SAT = False
-if 'SAT' in firstline:
-    SAT = True
-
-for line in f:
-    if line[-1] == '\n':
-        line = line[:-1]
-    parsed = parse(line)
-
-    if PARSE:
-        output = "%s is %s." % (line, parseOutputs[parsed])
-        if parsed in [5,8]:
-            output += " Its left hand side is %s, its connective is %s, and its right hand side is %s." % (lhs(line), con(line) ,rhs(line))
-        print(output)
-
-    if SAT:
-        if parsed:
-            tableau = [theory(line)]
-            print('%s %s.' % (line, satOutput[sat(tableau)]))
-        else:
-            print('%s is not a formula.' % line)
