@@ -1,4 +1,4 @@
-# Predicate-and-First-Order-Tableaux
+# Propositional-and-First-Order-Tableaux
 
 ### Program to parse propositional and first-order logical formulae, and also prove their satisfiability using a tableau expansion method.
 
